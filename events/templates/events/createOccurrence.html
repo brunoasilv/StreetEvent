@@ -1,0 +1,29 @@
+<h1>header</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'registerOccurrence' %}" method="post">
+    {% csrf_token %}
+    <label for="description">Description: </label>
+    <p><textarea id="description" style="width:650px;height:150px;" type="text" name="description" value="{{ current_name }}"></textarea></p>
+
+    <label for="address">Address: </label>
+    <p><input id="address" type="text" name="address" size="88" value="{{ address }}"></p>
+    <label for="occurrenceCategory">Choose a Category:</label>
+    <select id="occurrenceCategory" name="occurrenceCategory">
+        <option selected="selected" name="occurrenceCategory" id="CONSTRUCTION" value="CONSTRUCTION">CONSTRUCTION</option>
+        <option name="occurrenceCategory" id="SPECIAL_EVENT" value="SPECIAL_EVENT">SPECIAL_EVENT</option>
+        <option name="occurrenceCategory" id="INCIDENT" value="INCIDENT">INCIDENT</option>
+        <option name="occurrenceCategory" id="WEATHER_CONDITION" value="WEATHER_CONDITION">WEATHER_CONDITION</option>
+        <option name="occurrenceCategory" id="ROAD_CONDITION" value="ROAD_CONDITION">ROAD_CONDITION</option>
+    </select>
+    <p></p>
+    <label for="occurrenceState">Choose a State:</label>
+    <select id="occurrenceState" name="occurrenceState">
+        <option selected="selected" name="occurrenceCategory" id="por validar" value="por validar">por validar</option>
+        <!--<option name="occurrenceCategory" id="validado" value="validado">validado</option>-->
+        <!--<option name="occurrenceCategory" id="resolvido" value="resolvido">resolvido</option>-->
+    </select>
+    <p></p>
+    <input type="submit" value="Create">
+</form>
